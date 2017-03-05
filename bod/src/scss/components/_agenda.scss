@@ -1,0 +1,223 @@
+.#{$bd}-agenda{
+	$agenda:&;
+    padding: 0 0 50px 0;
+	&__content{
+		display: inline-block;
+	    width: calc(100% - 78px);	    
+	    float: left;
+	    padding-left: 93px;
+	    margin-bottom: 50px;
+
+	    &--block{
+	    	width: 100%;	    	
+	    }
+	}
+
+	&__icn{
+		display: inline-block;
+	    background-color: #E99D00;
+	    height: 85px;
+	    width: 78px;
+	    text-align: center;
+	    line-height: 100px;
+	    float: left;
+
+	    .fa{
+	    	color:#fff;
+	    	font-size:40px;
+	    }
+
+	    + #{$agenda}__content{
+			padding-left: 15px;
+			margin-bottom:50px;
+	    }
+	}
+
+	&__title{
+		font-size: 20px;
+	    font-weight: 600;
+	    padding: 0;
+	    margin: 0;
+	    .fa{
+	    	margin-right: 10px;
+	    }
+
+	    &-timestamp{
+	    	color: #8d8d8d;
+		    font-size: 14px;
+		    font-weight: 400;
+		    margin-left: 10px;
+    		vertical-align: middle;
+
+		    .fa{
+		    	margin-right: 5px;
+		    }
+	    }
+	}
+
+	&__desc{
+	    padding: 10px 0;
+
+	    &:after{
+	    	@extend #after-clear;
+	    }
+	}
+
+	&__action{
+		@extend #list;
+		
+		&:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		>li{
+			display: inline-block;
+			float: left;
+		}
+
+		&-item{
+			padding: 5px;
+		    background-color: #f5f5f5;
+		    margin-right: 5px;
+		    color:$pri-color;
+		    cursor: pointer;
+
+		    &:hover{
+		    	color: $pri-color--hover;
+		    }
+		}
+		
+		&-divider{
+			border-left:solid 1px #ccc;
+		}
+	}
+
+	&__attachments{
+		@extend #list;
+
+		&-item{
+		    display: inline-block;
+		    float: left;
+		    background-color: #f5f5f5;
+		    padding: 5px 10px;
+		    margin-right: 10px;
+		    border: solid 1px #e5e5e5;
+		    width: 145px;
+		}
+
+		&-icn{
+			display: inline-block;
+		    color: #a3a8ae;
+		    font-size: 30px;
+		    text-align: center;
+		    margin-right: 5px;
+		    color: $pri-color;
+		}
+
+		&-info{
+			display: inline-block;		  
+		    margin: 0;		    
+		    vertical-align: top;
+
+		    dd{
+		    	color: $font-gray;
+		    }
+		    
+		}
+	}
+
+	&__post{
+		@extend #list;
+		
+		&s{
+			border-left:solid 1px $pri-color;
+			padding-left: 40px;
+		}
+
+		#{$agenda}__tag{
+			background: #eaeaea;
+    		padding: 10px 20px;
+
+    		&-line{
+    			color: #515B66;
+    			margin: 0;
+    		}
+
+    		&-user,&-object{
+    			color:$pri-color;
+    			font-weight: 600;
+    		}
+
+    		&-user{
+    			.fa{
+    				margin-right: 5px;
+    			}
+
+    			img{
+				    width: 25px;
+				    height: 25px;
+				    margin: 0 5px;
+				    border: solid 1px #ddd;
+    			}
+    		}
+
+    		&-timestamp{
+    			color: #8d8d8d;
+    			.fa{
+    				margin-right: 5px;
+    			}
+    		}
+		}
+
+		#{$agenda}__comment{
+			display: inline-block;
+		    width: calc(100% - 37px);
+		    float: left;
+		    padding-left: 10px;
+
+			&s{
+				background: #f5f5f5;
+			    padding: 10px 20px;
+	    		margin-left: 100px;
+	    		margin-top: 3px;
+	    		&:after{
+					@extend #after-clear;
+	    		}
+			}
+
+			&-img{
+				display: inline-block;
+				height: 37px;
+				width:37px;
+				float: left;
+				img{
+					height: 100%;
+					width:100%;
+				}
+			}
+		   
+		}
+
+		&-pointer{
+			height: 30px;
+		    width: 30px;
+		    display: inline-block;
+		    border: solid 1px $pri-color;
+		    border-radius: 40px;
+		    color: $pri-color;
+		    text-align: center;
+		    line-height: 30px;
+		    position: absolute;
+		    left: 108px;
+		    background-color: #fff;
+		    cursor: pointer;
+
+		    &.active{
+		    	color: #fff;
+				background-color:$pri-color;
+		    }
+		}
+	}
+}

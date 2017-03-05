@@ -1,0 +1,16 @@
+
+
+@import "common/variables";
+
+.#{$bd}{
+	&-main{
+		//border:solid 1px red;
+	}
+
+	&-content{
+		//border:solid 1px red;
+		width: 1152px;
+		margin: 0 auto;
+		padding: 20px;
+	}
+}

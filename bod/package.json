@@ -1,0 +1,25 @@
+{
+  "name": "gulp_broilerplate",
+  "version": "1.0.0",
+  "description": "Broilerplate code for gulp automation in any project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "[Gulp",
+    "Automation",
+    "Gulp",
+    "Broilerplate]"
+  ],
+  "author": "Bitupon Chetia",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.0.1"
+  }
+}

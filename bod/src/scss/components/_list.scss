@@ -1,0 +1,59 @@
+.#{$bd}{
+	&-list-group{
+		border-radius: 0;
+
+		.list{
+			&-group{
+				&-item{
+					&:first-child,&:last-child{
+						border-radius:0;
+					}
+				}
+			}
+		}
+
+		&--brdless{		   
+
+    		.list{
+				&-group{
+					&-item{
+						border-left: none;
+    					border-right: none;
+						&:first-child{
+							border-top: none;
+						}
+						&:last-child{
+							border-bottom: none;
+						}
+					}
+				}
+			}
+		}
+
+		&--brdless-a{		   
+
+    		.list{
+				&-group{
+					&-item{
+						border: none;
+    					border-right: none;						
+					}
+				}
+			}
+		}
+
+		&__img{
+			@extend #list;
+
+			&:after{
+				@extend #after-clear;
+			}
+
+			&-item{				
+				display: inline-block;
+			    margin-right: 2px;
+			    float: left;
+			}
+		}
+	}
+}

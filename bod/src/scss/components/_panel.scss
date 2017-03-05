@@ -1,0 +1,18 @@
+.#{$bd}{
+	&-panel{
+		$panel:&;
+		border-radius: 	0;
+
+		&.panel{			
+			&-default{
+				.panel-heading{
+					background-color: transparent;
+					padding: 5px 15px;
+					font-size: 	17px;
+					color: #2947AD;
+					font-weight: 600;
+				}	
+			}
+		}
+	}
+}

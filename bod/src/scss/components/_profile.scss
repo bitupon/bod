@@ -1,0 +1,29 @@
+.#{$bd}{
+	&-profile{
+		position: relative;
+		margin-bottom: 20px;
+		&__pic{
+			height: 248px;
+
+			img{
+				height: 100%;
+				width:100%;
+			}
+		}
+
+		&__name{
+			font-size: 20px;
+			font-weight: 600;
+			color: $pri-color;
+			margin: 20px 0 0 0;
+			@extend .m-p-0;
+		}
+
+		&__role{
+			font-size: 20px;
+			font-weight: 400;
+			color: #515B66;
+			@extend .m-p-0;
+		}
+	}	
+}
