@@ -1,0 +1,10 @@
+﻿<View DisplayName="Agendas" DefaultView="TRUE">
+  <ViewFields>
+    <FieldRef Name="Title"/>
+    <FieldRef Name="BODDescription"/>
+    <FieldRef Name="BODMeetingKey"/>
+    <FieldRef Name="BODMeetingTime"/>
+  </ViewFields>
+  <Query/>
+  <RowLimit Paged="TRUE">30</RowLimit>
+</View>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	BOD - Home</title>
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.carousel.min.css" />
+	<link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.theme.default.min.css" />
+	<link rel="stylesheet" href="css/main.css">
+
+	<script src="libs/jquery/dist/jquery.min.js"></script>
+	<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="libs/owl.carousel/dist/owl.carousel.min.js"></script>
+</head>
+<body>
+	<main class="bod-main">
+		<div class="bod-content">
+			<!--Start: BOD PageLayout -->
+			<div class="row bod-page">
+				<div class="col-sm-12 col-md-12 col-lg-12">	
+					<!--Start : BOD Accordion Components-->			
+					<div class="bod-accordion panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						<div class="bod-accordion__item panel">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title panel-title--sm">
+									Attending
+									<span class="pull-right">
+											<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+												<i class="fa fa-angle-down" aria-hidden="true"></i>
+											</a>
+									</span>
+								
+								</h4>
+							</div>
+							<div id="collapseOne" class="bod-accordion__content panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<div class="bod-accordion__item panel">
+							<div class="panel-heading" role="tab" id="headingTwo">
+								<h4 class="panel-title panel-title--sm">
+										Not Attending
+										<span class="pull-right">										
+											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+													<i class="fa fa-angle-down" aria-hidden="true"></i>
+											</a>
+										</span>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="bod-accordion__content panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<div class="bod-accordion__item panel">
+							<div class="panel-heading" role="tab" id="headingThree">
+									<h4 class="panel-title panel-title--sm">
+											Might Attend
+										<span class="pull-right">										
+											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+												<i class="fa fa-angle-down" aria-hidden="true"></i>
+											</a>
+										</span>									
+								</h4>
+							</div>
+							<div id="collapseThree" class="bod-accordion__content panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--End : BOD Accordion Components-->			
+				</div>
+			</div>
+			<!--End: BOD PageLayout -->
+		</div>
+	</main>
+	<script>
+		$(document).ready(function(){
+			
+
+			$('.owl-carousel').owlCarousel({
+			    loop:true,
+			    margin:10,
+			    dots:false,
+			    nav:true,
+			    navText:['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+			    responsive:{
+			        0:{
+			            items:1
+			        },
+			        600:{
+			            items:3
+			        },
+			        1000:{
+			            items:5
+			        }
+			    }
+			})
+
+		})
+	</script>
+</body>
+</html>
+

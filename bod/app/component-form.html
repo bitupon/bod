@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	BOD - Form Component</title>
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+	<link rel="stylesheet" href="libs/owl-carousel/assets/owl.carousel.min.css" />
+	<link rel="stylesheet" href="libs/owl-carousel/assets/owl.theme.default.min.css" />
+	<link rel="stylesheet" href="css/main.css">
+
+	<script src="libs/jquery/jquery.min.js"></script>
+	<script src="libs/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="libs/bootstrap/js/bootstrap.min.js"></script>
+	<script src="libs/underscore/underscore-min.js"></script>
+	<script src="libs/moment/min/moment.min.js"></script>
+	<script src="libs/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="libs/owl-carousel/owl.carousel.min.js"></script>
+</head>
+</head>
+<body>
+	<main class="bod-main">
+		<div class="bod-content">
+			<!--Start: BOD PageLayout -->
+			<div class="row bod-page">
+				<div class="col-sm-12 col-md-12 col-lg-12">	
+					<!--Start : BOD Form Components-->			
+					<section>
+							<div class="form-group">
+								<label for="email">Email address</label>
+								<input type="email" class="form-control" id="email" placeholder="Email">
+							</div>
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="password" class="form-control" id="password" placeholder="Password">
+							</div>
+							<div class="form-group">
+								<label for="city">City</label>
+								<select  class="form-control" id="city" placeholder="Password">
+									<option value="">Delhi</option>
+									<option value="">Mumbai</option>
+									<option value="">Hyderabad</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="desc">Description</label>
+								<textarea class="form-control" id="des" placeholder="desc"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputFile">File input</label>
+								<input type="file" id="exampleInputFile">
+								<p class="help-block">Example block-level help text here.</p>
+							</div>
+							<div class="form-group">
+								 <div class="input-group">
+									<div class="input-group-addon">$</div>
+									<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+									<div class="input-group-addon p-a-0"><button type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button></div>
+								 </div>
+							</div>	
+							<div class="form-group">
+								<div class='input-group date' id='datetimepicker'>
+									<input type='text' class="form-control" />
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+								</div>
+							</div>		
+							
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+								</label>
+								<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+								</label>
+								<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+							</label>	
+							<div class="form-group">
+								<div class="bod-checkbox-group">
+									<div class="bod-checkbox-group__item">
+										<input type="checkbox" value="" name="" id="chkBx1"/>
+										<label for="chkBx1" class="label">Attend</label>
+									</div>
+									<div class="bod-checkbox-group__item">
+										<input type="checkbox" value="" name="" id="chkBx2"/>
+										<label for="chkBx2" class="label">Might Attend</label>
+									</div>
+									<div class="bod-checkbox-group__item">
+										<input type="checkbox" value="" name="" id="chkBx3"/>
+										<label for="chkBx3" class="label">No</label>
+									</div>
+								</div>	
+							</div>	
+							<div class="form-group">
+								<div class="bod-radio-group">
+									<div class="bod-radio-group__item">
+										<input type="radio" value="" name="bod_radio" id="radio1"/>
+										<label for="radio1" class="label">Attend</label>
+									</div>
+									<div class="bod-radio-group__item">
+										<input type="radio" value="" name="bod_radio" id="radio2"/>
+										<label for="radio2" class="label">Might Attend</label>
+									</div>
+									<div class="bod-radio-group__item">
+										<input type="radio" value="" name="bod_radio" id="radio3"/>
+										<label for="radio3" class="label">No</label>
+									</div>
+								</div>			
+							</div>
+							<div class="form-group">
+								<div class="bod-file-uploader">
+									<input type="file" name="bod_file_uploader" id="bodFileUploader" class="bod-file-uploader__item inputfile inputfile-6" data-multiple-caption="{count} files selected" multiple />
+									<div class="bod-file-uploader__custom"><span class="bod-file-uploader__file">dsdsdsdfddsdsdsdsfdfdfdfdfdfdfdsd.txt</span><label for="bodFileUploader" class="bod-file-uploader__action"><i class="fa fa-file-o m-r-2" aria-hidden="true"></i>Choose a file</label></div>
+								</div>
+							</div>
+							<div class="row bod-page">
+								<div class="col-sm-6">	
+									<div class="form-group">
+										<div class="bod-dropdown bod-dropdown--block btn-group" role="group">
+											<button type="button" class="btn btn-block btn--default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												Are you attend this meeting?
+												<span class="pull-right"><span class="glyphicon glyphicon-menu-down"></span></span>
+											</button>
+											<ul class="bod-dropdown__menu dropdown-menu">
+												<li><a href="#"><i class="fa fa-check" aria-hidden="true"></i>Attending</a></li>
+												<li><a href="#"><i class="fa fa-question" aria-hidden="true"></i>Might Attending</a></li>
+												<li role="separator" class="divider"></li>
+												<li><a href="#"><i class="fa fa-times" aria-hidden="true"></i>Not Attending</a></li>
+											</ul>
+										</div>		
+									</div>
+								</div>		
+							</div>
+												
+							<div class="checkbox">
+								<label>
+								<input type="checkbox"> Check me out
+								</label>
+							</div>
+							<div class="form-group">
+								<button type="button" class="btn btn--default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn--primary">Save changes</button>
+							</div>
+						</section>
+					<!--End : BOD Form Components-->			
+				</div>
+			</div>
+			<!--End: BOD PageLayout -->
+		</div>
+	</main>
+	<script>
+		$(document).ready(function(){
+			$('#datetimepicker').datetimepicker();
+
+			$('.owl-carousel').owlCarousel({
+			    loop:true,
+			    margin:10,
+			    dots:false,
+			    nav:true,
+			    navText:['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+			    responsive:{
+			        0:{
+			            items:1
+			        },
+			        600:{
+			            items:3
+			        },
+			        1000:{
+			            items:5
+			        }
+			    }
+			})
+
+			$("#bodFileUploader").fileUpload();			
+
+		});
+
+
+
+		//GTI Fileupload JS Plugin
+
+		(function () {
+			'use strict';    
+
+			var FileUpload = function (el, opt) {
+				var def = {
+					classes:{
+						fileUpload:'bod-file-uploader__custom',
+						fileInput:'bod-file-uploader__file'
+					}           
+				}, 
+				_self = this;
+				_self.opts = $.extend({}, def, opt), _self.$el="";
+		
+				function _init() {  
+				_self.$el = $(el), 
+				_self.$fileUpload = _self.$el.siblings("."+_self.opts.classes.fileUpload),
+				_self.$fileInput = _self.$fileUpload.find("."+_self.opts.classes.fileInput); 
+				
+				_initEvents();
+				}          
+
+				function _initEvents() {
+					_self.$el.on('change.ui.input.fileUpload',function (e) {
+					var fileName = '';
+						if( this.files && this.files.length > 1 )
+							fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+						else
+							fileName = e.target.value.split( '\\' ).pop();
+
+						if(fileName)
+							_self.$fileInput.html(fileName);	
+					});
+				}     
+
+				_init()
+			}    
+			
+			function Plugin(option) {
+				return this.each(function () {
+					var $this = $(this),
+						curEl = $this.data('fileUpload'),
+						options = typeof option == 'object' && option;
+
+					if (curEl) {
+					
+					}
+					if (!curEl) $this.data('fileUpload', (curEl = new FileUpload(this, options)))
+				})
+			}
+
+			var old = $.fn.fileUpload
+
+			$.fn.fileUpload = Plugin
+			$.fn.fileUpload.Constructor = FileUpload
+		
+
+			$.fn.fileUpload.noConflict = function () {
+				$.fn.fileUpload = old
+				return this
+			}
+
+		}());
+
+		
+	</script>
+</body>
+</html>
+

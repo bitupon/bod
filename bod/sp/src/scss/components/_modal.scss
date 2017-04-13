@@ -1,0 +1,74 @@
+.#{$bd}{
+	&-modal{
+    $modal: &;
+
+        #{$modal}__dialog{
+            
+        }
+
+        #{$modal}__content{
+             border-radius: 0;
+        }
+
+        #{$modal}__header{
+           padding:15px 20px;
+           border-bottom:none;
+
+           .close{
+                position: absolute;
+                top: 8px;
+                right: 10px;
+                font-size: 18px;
+                margin: 0;
+                min-width: 0;
+                outline: none;
+                &:focus,&:active{
+                    outline: none;
+                }
+           }
+
+           .modal-title{
+                text-transform: uppercase;
+                font-size: 18px;
+           }
+        }
+
+        #{$modal}__body{
+            padding:15px 20px;
+        }
+
+        #{$modal}__footer{
+            padding:15px 20px;
+           background: #f5f5f5;
+        }
+
+
+        //Modifiers
+        
+        &--xl{
+           #{$modal}__dialog{
+                 width:900px;
+            }     
+        }
+
+        &--lg{
+            #{$modal}__dialog{
+                 width:800px;
+            }  
+        }
+
+        &--md{
+            #{$modal}__dialog{
+                 width:700px;
+             }  
+        }
+
+        &--sm{
+             #{$modal}__dialog{
+                 width:400px;
+             }            
+        }
+
+
+    }
+}

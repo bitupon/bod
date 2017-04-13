@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Pages>
+  <page Name="Meetings.aspx" Url="Meetings.aspx"  Title="Meetings" PublishingPageLayout="bod.pl.meetings"  WelcomePage="yes" />
+</Pages>

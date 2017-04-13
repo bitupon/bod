@@ -1,0 +1,41 @@
+.#{$bd}-breadcrumbs{
+	@extend #list;
+
+	margin:20px 0px;
+
+	&__item{
+		position:relative;
+	    display: inline-block;
+	    font-size: 23px;
+	    padding: 0 15px;
+	    float: left;
+
+	    &:after{
+    	    content: "";
+		    display: block;
+		    border-right: solid 2px #515B66;
+		    height: 20px;
+		    position: absolute;
+		    top: 5px;
+		    right: 0;
+		    transform: rotate(20deg);
+	    }
+
+	    &:first-child{
+			padding-left:0;
+	    }
+
+	    &:last-child{
+			&:after{
+				border:none;
+			}
+	    }		    
+	}
+
+	&:after{
+		content:"";
+		display: block;
+		clear: both;
+	}
+
+}

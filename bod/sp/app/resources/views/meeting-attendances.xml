@@ -1,0 +1,9 @@
+﻿<View DisplayName="Attendances" DefaultView="TRUE">
+  <ViewFields>
+    <FieldRef Name="BODMeetingKey"/>
+    <FieldRef Name="BODAttendanceID"/>
+    <FieldRef Name="BODAttendanceType"/>
+  </ViewFields>
+  <Query/>
+  <RowLimit Paged="TRUE">30</RowLimit>
+</View>

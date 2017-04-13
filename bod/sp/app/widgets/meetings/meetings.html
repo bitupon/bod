@@ -1,0 +1,288 @@
+<!--Start: Meetings Templates -->
+<script type="text/html" id='tmpMeetings'>
+    {% if (data.length <= 0) { %}
+    <div class="col-sm-12">
+        <div class="bod-alert alert alert-info" role="alert"><i class="fa fa-exclamation-circle m-r-2" aria-hidden="true"></i>No meeting available ! Please add one.</div>
+    </div>
+    {% }  %}
+    {% _.each(data, function(item, key, list) { %}
+    <div class="col-sm-12 col-md-4">
+        <!--Start: Meetings Panel-->
+        <section class="bod-panel bod-panel--primary bod-panel--meeting panel">
+            <div class="panel-heading panel-heading--default b-b-2 fw-bld" id="btnMeetingUrl-{%= item.UrlKey %}" data-meeting-url="{%= item.UrlKey %}">
+                <h1>{%= item.Title %}</h1>
+            </div>
+            <div class="panel-body">
+                <div class="ellipsis--multiline" title="{%= item.Description %}">
+                    {%= item.Description %}
+                </div>
+            </div>
+            <div class="panel-footer p-a-0">
+                <span class="pull-left">
+                    <a class="btn btn--primary btn--icn pull-left br-r" id="btnMeetingEdit-{%= item.UrlKey %}" data-meeting-id="{%= item.UrlKey %}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    <a class="btn btn--primary btn--icn pull-left br-r" id="btnMeetingDelete-{%= item.UrlKey %}" data-meeting-id="{%= item.UrlKey %}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                </span>
+            </div>
+        </section>
+        <!--End: Meetings Panel-->
+    </div>
+    {% });%}
+</script>
+<!--End: Meetings Templates -->
+<!--Start: User Profile Templates -->
+<script type="text/html" id='tmpUserProfile'>
+    <div class="bod-profile__pic">
+        <img src="{%= data.PictureUrl %}" />
+    </div>
+
+    <p class="bod-profile__name">{%= data.UserName %}</p>
+    <p class="bod-profile__role">{%= data.JobTitle %}</p>
+</script>
+<!--End: User Profile Templates -->
+<!--Start: Alert Templates -->
+<script type="text/html" id='tmpCommonComponents'>
+    {% if (data.Type=='success') { %}
+    <div class="bod-alert alert alert-success alert-dismissible" role="alert" id="bodResponseMessage">
+        {% }else if(data.Type=='failure'){  %}
+        <div class="bod-alert alert alert-danger alert-dismissible" role="alert" id="bodResponseMessage">
+            {% }  %}
+
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span class="bod-alert__sym">
+                {% if (data.Type=='success') { %}
+                <i class="fa fa-check" aria-hidden="true"></i>
+                {% }else if(data.Type=='failure'){  %}
+                <i class="fa fa-times" aria-hidden="true"></i>
+                {% }  %}
+
+            </span>
+            <span class="p-l-6">{%= data.Message %}</span>
+        </div>
+</script>
+<!--End: Alert Templates -->
+<!--Start: Meeting Modal Templates -->
+<script type="text/html" id='tmpMeetingModal'>
+    <section class="bod-modal modal fade" id="modalAddMeeting" tabindex="-1" role="dialog" aria-labelledby="modalAddMeeting">
+        <div class="bod-modal__dialog modal-dialog" role="document">
+            <div class="bod-modal__content modal-content">
+                <div class="bod-modal__header modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-times" aria-hidden="true"></span></button>
+                    <h4 class="modal-title">{%= data.ModalType %} Meeting</h4>
+                </div>
+                <div class="bod-modal__body modal-body">
+                    <section class="bod-form" id="frmAddMeeting">
+                        <div class="form-group">
+                            <label for="txtMeetingTitle" class="required">Title</label>
+                            {% if (data.ModalType == "Delete") { %}
+                            <input type="text" class="form-control" id="txtMeetingTitle" name="meeting_title" placeholder="Title" value="{%= data.Title %}" disabled>
+                            {% } else { %}
+                            <input type="text" class="form-control" id="txtMeetingTitle" name="meeting_title" placeholder="Title" value="{%= data.Title %}">
+                            {% } %}
+                        </div>
+                        <div class="form-group">
+                            <label for="txtMeetingDescription" class="required">Description</label>
+                            {% if (data.ModalType == "Delete") { %}
+                            <textarea class="form-control" id="txtMeetingDescription" name="meeting_description" placeholder="Description" disabled>{%= data.Description %}</textarea>
+                            {% } else { %}
+                            <textarea class="form-control" id="txtMeetingDescription" name="meeting_description" placeholder="Description">{%= data.Description %}</textarea>
+                            {% } %}
+                        </div>
+                        {% if (data.ModalType != "Add") { %}
+                        <div class="form-group">
+                            <label for="txtMeetingUrl">Url</label>
+                            <input type="text" class="form-control" id="txtMeetingUrl" name="meeting_url" placeholder="Url" value="{%= data.Url %}" disabled>
+                        </div>
+                        {% } %}
+                    </section>
+                </div>
+                <div class="bod-modal__footer modal-footer">
+                    <button type="button" class="btn btn--default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn--primary" id="btnSaveMeeting" data-modal-type="{%= data.ModalType %}">Ok</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</script>
+<!--End: Meeting Modal Templates -->
+<!--Start: Meeting Success Modal Templates -->
+<script type="text/html" id='tmpMeetingSuccessModal'>
+    <section class="bod-modal modal fade" id="modalMeetingSuccess" tabindex="-1" role="dialog" aria-labelledby="modalMeetingSuccess">
+        <div class="bod-modal__dialog modal-dialog" role="document">
+            <div class="bod-modal__content modal-content">
+                <div class="bod-modal__header modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-times" aria-hidden="true"></span></button>
+                    <h4 class="modal-title">Shoveling coal into the server, as fast as we can!</h4>
+                </div>
+                <div class="bod-modal__body modal-body">
+                    <section id="frmMeetingSuccess">
+                        <ul class="bod-list-group list-group">
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        Creating Meeting Site...
+                                    </div>
+                                    <div class="col-md-2 bod-meeting-success-status" id="create-meeting">
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        Creating Meeting Permissions...
+                                    </div>
+                                    <div class="col-md-2 bod-meeting-success-status" id="create-meeting-permission">
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        Creating List/ Document Library...
+                                    </div>
+                                    <div class="col-md-2 bod-meeting-success-status" id="create-list">
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        Creating Project Page...
+                                    </div>
+                                    <div class="col-md-2 bod-meeting-success-status" id="create-page">
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        Adding Web Part...
+                                    </div>
+                                    <div class="col-md-2 bod-meeting-success-status" id="create-add-web-part">
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        Setting Welcome Page...
+                                    </div>
+                                    <div class="col-md-2 bod-meeting-success-status" id="set-welcome-page">
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        Setting Master Page...
+                                    </div>
+                                    <div class="col-md-2 bod-meeting-success-status" id="set-master-page">
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+
+                        <!--<div class="row">
+                            <div class="col-md-10">
+                                Creating Meeting Site...
+                            </div>
+                            <div class="col-md-2 bod-meeting-success-status" id="create-meeting">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                Creating Meeting Permissions...
+                            </div>
+                            <div class="col-md-2 bod-meeting-success-status" id="create-meeting-permission">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                Creating List/ Document Library...
+                            </div>
+                            <div class="col-md-2 bod-meeting-success-status" id="create-list">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                Creating Project Page...
+                            </div>
+                            <div class="col-md-2 bod-meeting-success-status" id="create-page">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                Adding Web Part...
+                            </div>
+                            <div class="col-md-2 bod-meeting-success-status" id="create-add-web-part">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                Setting Welcome Page...
+                            </div>
+                            <div class="col-md-2 bod-meeting-success-status" id="set-welcome-page">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                Setting Master Page...
+                            </div>
+                            <div class="col-md-2 bod-meeting-success-status" id="set-master-page">
+
+                            </div>
+                        </div>-->
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</script>
+<!--End: Meeting Success Modal Templates -->
+<!--Start: Content Loader Templates -->
+<script type="text/html" id='tmpContentLoader'>
+    <div class="bod-spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</script>
+<!--End: Content Loader Templates -->
+<!--Start: Content Success Templates -->
+<script type="text/html" id='tmpContentSuccess'>
+    <div class="bod-check">
+        <i class="fa fa-check"></i>
+    </div>
+</script>
+<!--End: Content Success Templates -->
+<!--Start: Content Success Templates -->
+<script type="text/html" id='tmpContentFailure'>
+    <div class="bod-close">
+        <i class="fa fa-close"></i>
+    </div>
+</script>
+<!--End: Content Success Templates -->
+<!--Start: Meeting Dashboard Script -->
+<script type="text/javascript">
+    document.write('<script src="' + _spPageContextInfo.siteServerRelativeUrl + '/Style Library/bod/widgets/meetings/meetings.js"></scr' + 'ipt>')
+</script>
+<!--End: Meeting Dashboard Script -->

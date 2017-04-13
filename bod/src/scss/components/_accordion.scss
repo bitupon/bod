@@ -1,0 +1,31 @@
+.#{$bd}-accordion{
+    $accordion: & ; 
+    margin: 0;
+    
+    #{$accordion}__item{
+        margin: 0;
+        border-bottom: 1px solid #ddd;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+        + #{$accordion}__item{
+            margin-top:0;
+        }
+        .panel{
+           
+            &-title{
+                color:#515B66;
+                &--sm{
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+
+                .collapsed{
+                    .fa-angle-up{
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}

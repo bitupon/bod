@@ -1,0 +1,400 @@
+﻿<!--Start: Calendar Navigation Templates -->
+<script type="text/html" id='tmpCalenderNavItems'>    
+    {% if (data.length<=0) { %}<div class="bod-alert alert alert-info" role="alert"><i class="fa fa-exclamation-circle m-r-2" aria-hidden="true"></i>No meeting available! Please add one.<span class="pull-right"><a href="{%= data.DashboardSrc %}" class="btn-link"><i class="fa fa-angle-left" aria-hidden="true"></i>Back to Dashboard</a></span></div>{% }  %}
+    {% _.each(data, function(item, key, list) { %}         
+            <div class="bod-navigation__item item" data-calender-date-id="{%= item.Id %}">
+                <span class="bod-navigation__item-icn"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                <span class="bod-navigation__item-label">{%= item.EventDate.toLocaleDateString() %}</span>
+            </div>
+    {% });%}
+</script>
+
+<!--End: Calendar Navigation Templates -->
+
+<!--Start: Breadcrumbs Templates -->
+<script type="text/html" id='tmpBreadcrumbs'>    
+    <li class="bod-breadcrumbs__item link"><a href="{%= data.DashboardSrc %}">Dashboard</a></li>					   
+    <li class="bod-breadcrumbs__item">{%= data.Title %}</li>
+    <li class="bod-breadcrumbs__item">{%= data.EventDate.toDateString() %}</li>
+</script>
+<!--Start: Breadcrumbs Templates -->
+
+<!--Start: Event Templates -->
+<script type="text/html" id='tmpEvent'>    
+    <li class="bod-event__list-item">
+        <span class="bod-event__details-sym"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+        <dl class="bod-event__details">
+            <dt>{%= data.EventDateString  %}</dt>
+            <dd>{%= data.EventDuration  %}</dd>									  
+        </dl>
+    </li>
+    <li class="bod-event__list-item">									
+        <span class="bod-event__details-sym"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+        <dl class="bod-event__details">
+            <dt>{%= data.WorkAddress %}</dt>
+            <dd>{%= data.WorkCity %} {%= data.WorkState %} {%= data.WorkZip %}</dd>									  
+        </dl>
+    </li>    
+</script>
+<!--Start: Event Templates -->
+
+<!--Start: Event Attendance Templates -->
+<script type="text/html" id='tmpEventAttendance'>    
+    <button type="button" class="btn {%= (data.AttendanceType != null) ? "btn--primary" : "btn--default" %}  btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        {% if(data.AttendanceType == 1){   %}                
+            <span><i class="fa fa-check-circle m-r-1" aria-hidden="true"></i>I am attending</span>
+        {% }else if(data.AttendanceType == 2){   %}
+            <span><i class="fa fa-question-circle m-r-1" aria-hidden="true"></i>I might attend</span>
+        {% }else if(data.AttendanceType == 0){   %}
+            <span><i class="fa fa-times-circle m-r-1" aria-hidden="true"></i>I am not attending</span>             
+        {% }else{   %}
+                Are you attending?
+        {% } %}
+        <span class="pull-right"><span class="glyphicon glyphicon-menu-down"></span></span>
+    </button>
+    <ul class="bod-dropdown__menu dropdown-menu">
+        {% if(data.AttendanceType == 1){   %}                
+            <li><a href="#" data-attendance-type="2"><i class="fa fa-question" aria-hidden="true"></i>Might Attend</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" data-attendance-type="0"><i class="fa fa-times" aria-hidden="true"></i>Not Attending</a></li>
+        {% }else if(data.AttendanceType == 2){   %}
+            <li><a href="#" data-attendance-type="1"><i class="fa fa-check" aria-hidden="true"></i>Attending</a></li>               
+            <li role="separator" class="divider"></li>
+            <li><a href="#" data-attendance-type="0"><i class="fa fa-times" aria-hidden="true"></i>Not Attending</a></li>
+        {% }else if(data.AttendanceType == 0){   %}
+            <li><a href="#" data-attendance-type="1"><i class="fa fa-check" aria-hidden="true"></i>Attending</a></li>
+            <li><a href="#" data-attendance-type="2"><i class="fa fa-question" aria-hidden="true"></i>Might Attend</a></li>               
+        {% }else{   %}
+            <li><a href="#" data-attendance-type="1"><i class="fa fa-check" aria-hidden="true"></i>Attending</a></li>
+            <li><a href="#" data-attendance-type="2"><i class="fa fa-question" aria-hidden="true"></i>Might Attend</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" data-attendance-type="0"><i class="fa fa-times" aria-hidden="true"></i>Not Attending</a></li>
+        {% } %}
+
+    </ul>   
+</script>
+<!--End: Event Attendance Templates -->
+
+<!--Start: User Profile Templates -->
+<script type="text/html" id='tmpUserProfile'>    
+    <div class="bod-profile__pic">
+        <img  src="{%= data.PictureUrl %}"/>
+    </div>
+    
+    <p class="bod-profile__name">{%= data.UserName %}</p>
+    <p class="bod-profile__role">{%= data.JobTitle %}</p>
+</script>
+<!--End: User Profile Templates -->
+
+<!--Start: Meeting Attendance Templates -->
+<script type="text/html" id='tmpMeetingAttendance'> 
+    <div class="bod-accordion__item panel">
+        <div class="panel-heading" role="tab">
+            <h4 class="panel-title panel-title--sm">
+                Attending                    
+                <span class="pull-right">
+                    <span class="badge badge--success m-r-2">{%= data.Attending %}</span>
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#bodMeetingAttendance" href="#bodMeetingAttendance-Attending" aria-expanded="false" aria-controls="collapseOne">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </span>
+            
+            </h4>
+        </div>
+        <div id="bodMeetingAttendance-Attending" class="bod-accordion__content panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body p-a-0">
+                <div class="list-group-item b-a-0">
+                    <ul class="bod-list-group__img">
+                        {% if(_.where(data.details,{AttendanceType:"1"}).length > 0){ %} 
+                            {% _.each(_.where(data.details,{AttendanceType:"1"}), function(item, key, list) { %}       
+                                <li class="bod-list-group__img-item" title="{%= item.AuthorName %}"><img  src="{%= item.AuthorPicture %}" /></li>
+                            {% });%} 
+                        {% } else{ %}
+                            No records available. 
+                        {% } %}                                                        
+                    </ul>
+                </div>	
+            </div>
+        </div>
+    </div>
+    <div class="bod-accordion__item panel">
+        <div class="panel-heading" role="tab">
+            <h4 class="panel-title panel-title--sm">
+                Not Attending                    
+                <span class="pull-right">
+                    <span class="badge badge--failure m-r-2">{%= data.NotAttending %}</span>
+                    <a class="collapsed"  role="button" data-toggle="collapse" data-parent="#bodMeetingAttendance" href="#bodMeetingAttendance-NotAttending" aria-expanded="false" aria-controls="collapseOne">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </span>
+            
+            </h4>
+        </div>
+        <div id="bodMeetingAttendance-NotAttending" class="bod-accordion__content panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body p-a-0">
+                <div class="list-group-item b-a-0">
+                    <ul class="bod-list-group__img">
+                        {% if(_.where(data.details,{AttendanceType:"0"}).length > 0){ %} 
+                            {% _.each(_.where(data.details,{AttendanceType:"0"}), function(item, key, list) { %}       
+                                <li class="bod-list-group__img-item" title="{%= item.AuthorName %}"><img  src="{%= item.AuthorPicture %}" /></li>
+                            {% });%} 
+                        {% } else{ %}
+                            No records available. 
+                        {% } %} 
+                    </ul>
+                </div>	
+            </div>
+        </div>
+    </div>
+    <div class="bod-accordion__item panel">
+        <div class="panel-heading" role="tab">
+            <h4 class="panel-title panel-title--sm">
+                May be Attend                    
+                <span class="pull-right">
+                    <span class="badge m-r-2">{%= data.MayBe %}</span>
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#bodMeetingAttendance" href="#bodMeetingAttendance-MayBe" aria-expanded="false" aria-controls="collapseOne">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </span>
+            
+            </h4>
+        </div>
+        <div id="bodMeetingAttendance-MayBe" class="bod-accordion__content panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body p-a-0">
+                <div class="list-group-item b-a-0">
+                    <ul class="bod-list-group__img">
+                        {% if(_.where(data.details,{AttendanceType:"2"}).length > 0){ %} 
+                            {% _.each(_.where(data.details,{AttendanceType:"2"}), function(item, key, list) { %}       
+                                <li class="bod-list-group__img-item" title="{%= item.AuthorName %}"><img  src="{%= item.AuthorPicture %}" /></li>
+                            {% });%} 
+                        {% } else{ %}
+                            No records available. 
+                        {% } %} 
+                    </ul>
+                </div>	
+            </div>
+        </div>
+    </div>   
+</script>
+<!--Start: Meeting Attendance Templates -->
+
+<!--Start: Agenda Templates -->
+<script type="text/html" id='tmpAgenda'>  
+    {% if (data.length<=0) { %}<div class="bod-alert bod-alert--sm alert alert-info" role="alert">	Currently, there is no agenda available.</div>{% }  %}
+    {% _.each(data, function(item, key, list) { %}   
+        <li class="list-group-item bod-agenda">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="bod-agenda__icn"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                    <div class="bod-agenda__content">
+                        <h4 class="bod-agenda__title">{%= item.Title %}<span class="bod-agenda__title-timestamp"><i class="fa fa-clock-o" aria-hidden="true"></i>{%= item.MeetingTime %}</span></h4>
+                        <div class="bod-agenda__desc">{%= item.Description %}</div>
+                        <ul class="bod-agenda__action" id="{%= 'bodAgendaVotes-' + item.Id  %}">
+                                                                             
+                            
+                        </ul>
+                        <div class="" id="{%= 'bodAgendaVotesContentLoader-' + item.Id  %}"></div>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-3">
+                    <span class="pull-right"><button class="btn btn--primary" type="button" data-toggle="collapse" data-target="{%= '#agendaItem-' + item.Id  %}" aria-expanded="false" aria-controls="agendaItem-1">View Details</button></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">													
+                    <div class="collapse" id="{%= 'agendaItem-' + item.Id  %}">
+                        <div class="bod-agenda__content bod-agenda__content--block">
+                            <h4 class="bod-agenda__title"><i class="fa fa-paperclip" aria-hidden="true"></i>Attachments</h4>
+                            <div class="bod-agenda__desc">
+                                <ul class="bod-agenda__attachments" id="{%= 'bodAgendaAttachmentsItem-' + item.Id  %}">
+                                    <!--Attachments will come here-->
+                                     <div class="bod-alert bod-alert--sm alert alert-info m-l-3" role="alert">	Currently, there is no attachment available.</div>
+                                </ul>                                
+                            </div>
+                            <ul class="bod-agenda__action">														
+                                <li>                                    
+                                    <div class="bod-file-uploader">
+                                        <input type="file" name="bod_file_uploader" id="{%= 'uploaderAgendaAttachment-' + item.Id  %}" class="bod-file-uploader__item" data-multiple-caption="{count} files selected" multiple />
+                                        <div class="bod-file-uploader__custom"><span class="bod-file-uploader__file"></span><label for="{%= 'uploaderAgendaAttachment-' + item.Id  %}" class="bod-file-uploader__action"><i class="fa fa-file-o m-r-2" aria-hidden="true"></i>Choose a file</label></div>
+                                    </div>                                    
+                                    
+                                </li>
+                                <li><a class="btn-link m-l-2 m-t-2" id="{%= 'btnAddAgendaAttachment-' + item.Id  %}"><i class="fa fa-plus" aria-hidden="true"></i>Add</a></li>                                    </li>
+                            </ul>
+                        </div>
+
+                        <div class="bod-agenda__content bod-agenda__content--block">
+                            <h4 class="bod-agenda__title"><i class="fa fa-comment" aria-hidden="true"></i>Comments</h4>
+                            <div class="bod-agenda__desc p-l-3">
+                                <section class="bod-agenda__posts bod-agenda__posts--empty" id="{%= 'bodAgendaComments-' + item.Id  %}">
+                                    <!--Commments will come here-->
+                                    <div class="bod-alert bod-alert--sm alert alert-info" role="alert">	Currently, there is no comment available.</div>
+                                </section>
+                            </div>  
+                            <div class="bod-agenda__action">														
+                                <a class="btn-link" id="{%= 'btnAgendaCommentsShowHide-' + item.Id  %}"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i>View more...</a>
+                                <div class="input-group m-t-2">																			
+                                    <input type="text" class="form-control" placeholder="Write a comment" id="txtAddAgendaComment-{%= item.Id %}">
+                                    <div class="input-group-addon p-a-0"><button type="button" id="btnAddAgendaComment-{%= item.Id %}" disabled><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button></div>
+                                </div>
+                            </div>                          
+                        </div>								  		
+                    </div>
+
+                </div>
+            </div>
+        </li>
+    {% });%}     
+</script>
+<!--End: Agenda Templates -->
+
+<!--Start: Agenda Likes/Dislikes Templates -->
+<script type="text/html" id='tmpAgendaVotes'> 
+    {% if (data.CurrentUserVote!=null) { %}
+        <li><span class="p-r-1 fs-12 mm">{%= data.Likes %}</span><a class="bod-agenda__action-item {% if(data.CurrentUserVote.VoteType==1){ %} bod-agenda__action-item--active {% } %}" id="bodAgendaVoteLike-{%= data.AgendaId %}" data-agenda-vote-id="{%= data.VoteId %}"><i class="fa fa-thumbs-up m-r-0" aria-hidden="true"></i></a></li>
+        <li><span class="p-r-1 p-l-2 fs-12 mm">{%= data.Dislikes %}</span><a class="bod-agenda__action-item {% if(data.CurrentUserVote.VoteType==0){ %} bod-agenda__action-item--active {% } %}" id="bodAgendaVoteDislike-{%= data.AgendaId %}" data-agenda-vote-id="{%= data.VoteId %}"><i class="fa fa-thumbs-down m-r-0" aria-hidden="true"></i></a></li>    
+    {% }else{  %}   
+        <li><span class="p-r-1 fs-12">{%= data.Likes %}</span><a class="bod-agenda__action-item" id="bodAgendaVoteLike-{%= data.AgendaId %}" data-agenda-vote-id="{%= data.VoteId %}"><i class="fa fa-thumbs-up m-r-0" aria-hidden="true"></i></a></li>
+        <li><span class="p-r-1 p-l-2 fs-12">{%= data.Dislikes %}</span><a class="bod-agenda__action-item" id="bodAgendaVoteDislike-{%= data.AgendaId %}" data-agenda-vote-id="{%= data.VoteId %}"><i class="fa fa-thumbs-down m-r-0" aria-hidden="true"></i></a></li>
+     {% } %} 
+    <li class="m-l-4 p-l-4 bod-agenda__action-divider"><a class="btn-link"  id="btnAgendaEdit-{%= data.AgendaId %}" data-agenda-id="{%= data.AgendaId %}"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a></li>
+</script>
+<!--End: Agenda Likes/Dislikes  Templates -->
+
+<!--Start: Agenda Attachments Templates -->
+<script type="text/html" id='tmpAgendaAttachments'>    
+    {% if (data.length<=0) { %}<div class="bod-alert bod-alert--sm alert alert-info m-b-2" role="alert">	Currently, there is no attachment available.</div>{% }  %}
+    {% _.each(data, function(item, key, list) { %}   
+        <li class="bod-agenda__attachments-item">
+            <span class="bod-agenda__attachments-icn"><i class="fa fa-file" aria-hidden="true"></i></span>
+            <dl class="bod-agenda__attachments-info">
+                <dt><a href="{%= item.Woip %}"  target="_blank">{%= item.Title %}</a></dt>
+                <dd>{%= item.Created %}</dd>									  
+            </dl>
+        </li>
+    {% });%}     
+</script>
+<!--End: Agenda Attachments Templates -->
+
+<!--Start: Agenda Comments Templates -->
+<script type="text/html" id='tmpAgendaComments'> 
+    {% if (data.length<=0) { %}<div class="bod-alert bod-alert--sm alert alert-info" role="alert">	Currently, there is no comment available.</div>{% }  %}
+    {% _.each(data, function(itemA, keyA, listA) { %}      
+    <div class="{%= data.length != (keyA + 1) ? "m-b-6" : ""  %}" >
+        <a class="bod-agenda__post-pointer active"><i class="fa fa fa-share" aria-hidden="true"></i></a>
+        <ul  class="bod-agenda__post">
+             <li class="bod-agenda__comments">
+                <div class="bod-agenda__comment-img">
+                    <img  src="{%= itemA.AuthorPicUrl %}"/>
+                </div>
+                <div class="bod-agenda__comment">
+                    <p class="bod-agenda__tag-line">
+                        <span class="bod-agenda__tag-user">{%= itemA.Author %}</span>{%= itemA.Description %}
+                    </p>
+                    <span class="bod-agenda__tag-timestamp"><i class="fa fa-clock-o" aria-hidden="true"></i>{%= itemA.CreatedDate %}</span>
+                </div>  
+            </li>	
+            {% _.each(itemA.Childs, function(itemB, keyB, listB) { %} 
+                <li class="bod-agenda__comments bod-agenda__comments--child">
+                    <div class="bod-agenda__comment-img">
+                        <img  src="{%= itemB.AuthorPicUrl %}"/>
+                    </div>
+                    <div class="bod-agenda__comment">
+                        <p class="bod-agenda__tag-line">
+                            <span class="bod-agenda__tag-user">{%= itemB.Author %}</span>{%= itemB.Description %}
+                        </p>
+                        <span class="bod-agenda__tag-timestamp"><i class="fa fa-clock-o" aria-hidden="true"></i>{%= itemB.CreatedDate %}</span>
+                    </div>         
+                </li>	
+            {% });%}  															
+        </ul>
+        <div class="bod-agenda__post-reply">
+            <div class="input-group">																			
+                <input type="text" class="form-control" placeholder="Write a comment" id="txtAddAgendaChildComment-{%= itemA.Id %}">
+                <div class="input-group-addon p-a-0"><button type="button" id="btnAddAgendaChildComment-{%= itemA.Id %}" data-parent-comment-id="{%= itemA.Id %}" disabled><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button></div>
+            </div>	
+        </div>
+    </div>
+    {% });%}  
+</script>
+<!--End: Agenda Comments Templates -->
+
+<!--Start: Alert Templates -->
+<script type="text/html" id='tmpCommonComponents'> 
+    {% if (data.Type=='success') { %} 
+        <div class="bod-alert alert alert-success alert-dismissible" role="alert" id="bodResponseMessage">
+    {% }else if(data.Type=='failure'){  %}
+        <div class="bod-alert alert alert-danger alert-dismissible" role="alert" id="bodResponseMessage">
+    {% }  %}
+    
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <span class="bod-alert__sym">
+            {% if (data.Type=='success') { %} 
+                <i class="fa fa-check" aria-hidden="true"></i>
+            {% }else if(data.Type=='failure'){  %}
+                <i class="fa fa-times" aria-hidden="true"></i>
+            {% }  %}
+            
+        </span>
+        <span class="p-l-6">{%= data.Message %}</span>
+    </div>
+</script>
+<!--End: Alert Templates -->
+
+<!--Start: Agenda Modal Templates -->
+<script type="text/html" id='tmpAgendaModal'> 
+    <section class="bod-modal modal fade" id="modalAddAgenda" tabindex="-1" role="dialog" aria-labelledby="modalAddAgenda">
+        <div class="bod-modal__dialog modal-dialog" role="document">
+            <div class="bod-modal__content modal-content">
+                <div class="bod-modal__header modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-times" aria-hidden="true"></span></button>
+                    <h4 class="modal-title">{%= data.ModalType %} Agenda</h4>
+                </div>
+                <div class="bod-modal__body modal-body">
+                    <section class="bod-form" id="frmAddAgenda">
+                        <div class="form-group">
+                            <label for="txtAgendaTitle" class="required">Title</label>
+                            <input type="text" class="form-control" id="txtAgendaTitle" name="agenda_title" placeholder="Title" value="{%= data.Title %}">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtAgendaDescription" class="required">Description</label>
+                            <textarea class="form-control" id="txtAgendaDescription" name="agenda_description" placeholder="Description">{%= data.Description %}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtAgendaTime" class="required">Time</label>
+                            <div class='input-group date bod-time-picker' id="txtAgendaTime">
+                                <input type='text' class="form-control" name="agenda_tile" value="{%= data.MeetingTime %}"/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                            </div>								
+                        </div>												
+                    </section>						
+                </div>
+                <div class="bod-modal__footer modal-footer">
+                    <button type="button" class="btn btn--default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn--primary" id="btnSaveAgenda" data-modal-type="{%= data.ModalType %}">Save</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</script>
+<!--End: Agenda Modal Templates -->
+
+<!--Start: Content Loader Templates -->
+<script type="text/html" id='tmpContentLoader'> 
+    <div class="bod-spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>	
+</script>
+<!--End: Content Loader Templates -->
+
+<!--Start: Meeting Dashboard Script -->
+<script type="text/javascript">
+    document.write('<script src="' + _spPageContextInfo.siteServerRelativeUrl + '/Style Library/bod/widgets/meeting-dashboard/meeting-dashboard.js"></scr' + 'ipt>')
+</script>
+<!--End: Meeting Dashboard Script -->

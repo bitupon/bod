@@ -1,0 +1,14 @@
+﻿<View DisplayName="Attachments" DefaultView="TRUE">
+  <ViewFields>
+    <FieldRef Name="DocIcon"/>
+    <FieldRef Name="LinkFilename"/>
+    <FieldRef Name="Title"/>
+    <FieldRef Name="BODAgendaID"/>
+    <FieldRef Name="Created"/>
+    <FieldRef Name="Author"/>
+    <FieldRef Name="Modified"/>
+    <FieldRef Name="Editor"/>    
+  </ViewFields>
+  <Query/>
+  <RowLimit Paged="TRUE">30</RowLimit>
+</View>

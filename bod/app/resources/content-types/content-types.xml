@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!--Get Base Content Type Values From https://msdn.microsoft.com/en-us/library/office/ms452896(v=office.14).aspx -->
+
+  <!-- Meeting -->
+  <!-- Parent ContentType: Event (0x0102) -->
+  <ContentType ID="0x010200105EAC5B0F3045CE98C20824D2E80E78"
+    Name="BODMeeting"
+    Description="Kiiro BOD Content Type"
+    Group="Kiiro.BOD"
+    Inherits="TRUE"
+    Version="0">
+    <FieldRefs>
+      <FieldRef ID="{fc2e188e-ba91-48c9-9dd3-16431afddd50}" Name="WorkAddress" />
+      <FieldRef ID="{6ca7bd7f-b490-402e-af1b-2813cf087b1e}" Name="WorkCity" />
+      <FieldRef ID="{ceac61d3-dda9-468b-b276-f4a6bb93f14f}" Name="WorkState" />
+      <FieldRef ID="{9a631556-3dac-49db-8d2f-fb033b0fdc24}" Name="WorkZip" />
+    </FieldRefs>
+  </ContentType>
+  <!-- Agenda -->
+  <!-- Parent ContentType: Item (0x0100) -->
+  <ContentType ID="0x0100C10E2DAF8DD647B99EFC2ECD1B3BD96E"
+    Name="BODAgenda"
+    Description="Kiiro BOD Content Type"
+    Group="Kiiro.BOD"
+    Inherits="TRUE"
+    Version="0">
+    <FieldRefs>
+      <FieldRef ID="{59CE111F-FAC9-4242-A881-56DAC0E97A17}" Name="BODMeetingKey" />
+      <FieldRef ID="{19DC89D4-5229-4794-816F-B83B0D2A0FF2}" Name="BODMeetingTime" />
+      <FieldRef ID="{B52DC3E1-229A-4C80-8997-625B57ED435C}" Name="BODDescription" />
+    </FieldRefs>
+  </ContentType>
+  <!-- AgendaAttachment -->
+  <!-- Parent ContentType: Document (0x010100) -->
+  <ContentType ID="0x010100B204C490E6DC48A088160268F3DE5E63"
+    Name="BODAgendaAttachment"
+    Description="Kiiro BOD Content Type"
+    Group="Kiiro.BOD"
+    Inherits="TRUE"
+    Version="0">
+    <FieldRefs>
+      <FieldRef ID="{5173F040-3482-41C8-B4F3-FB54CD2E2E59}" Name="BODAgendaID" />
+    </FieldRefs>
+  </ContentType>
+  <!-- AgendaComment -->
+  <!-- Parent ContentType: Item (0x0100) -->
+  <ContentType ID="0x010026C954C5F7A9483ABF23013498CA99B8"
+    Name="BODAgendaComment"
+    Description="Kiiro BOD Content Type"
+    Group="Kiiro.BOD"
+    Inherits="TRUE"
+    Version="0">
+    <FieldRefs>
+      <FieldRef ID="{5173F040-3482-41C8-B4F3-FB54CD2E2E59}" Name="BODAgendaID" />
+      <FieldRef ID="{68DB8522-DD4B-447F-AC16-15EB4123EA54}" Name="BODParentCommentID" />
+      <FieldRef ID="{B52DC3E1-229A-4C80-8997-625B57ED435C}" Name="BODDescription" />
+    </FieldRefs>
+  </ContentType>
+  <!-- AgendaVote -->
+  <!-- Parent ContentType: Item (0x0100) -->
+  <ContentType ID="0x0100A72A1E1D8D8D4CBDAE8EEE9C7147579F"
+    Name="BODAgendaVote"
+    Description="Kiiro BOD Content Type"
+    Group="Kiiro.BOD"
+    Inherits="TRUE"
+    Version="0">
+    <FieldRefs>
+      <FieldRef ID="{5173F040-3482-41C8-B4F3-FB54CD2E2E59}" Name="BODAgendaID" />
+      <FieldRef ID="{3FBB4F49-5300-4EB3-A0B9-45890153D220}" Name="BODVoteID" />
+      <FieldRef ID="{5A31F74B-46C4-4406-B231-5518B585D54C}" Name="BODVoteType" />
+    </FieldRefs>
+  </ContentType>
+  <!-- MeetingAttendance -->
+  <!-- Parent ContentType: Item (0x0100) -->
+  <ContentType ID="0x0100B8F984013B914F05B3110C96D1555FC1"
+    Name="BODMeetingAttendance"
+    Description="Kiiro BOD Content Type"
+    Group="Kiiro.BOD"
+    Inherits="TRUE"
+    Version="0">
+    <FieldRefs>
+      <FieldRef ID="{59CE111F-FAC9-4242-A881-56DAC0E97A17}" Name="BODMeetingKey" />
+      <FieldRef ID="{7A7DBD66-BECC-453E-945A-AAC0C4525286}" Name="BODAttendanceID" />
+      <FieldRef ID="{78773AEC-6192-478E-A533-F91AE9938DDF}" Name="BODAttendanceType" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Description -->
+  <Field
+    Type="Note"
+    DisplayName="Description"
+    Required="FALSE"
+    EnforceUniqueValues="FALSE"
+    NumLines="6"
+    RichText="FALSE"
+    Group="Kiiro.BOD"
+    ID="{B52DC3E1-229A-4C80-8997-625B57ED435C}"
+    StaticName="BODDescription"
+    Name="BODDescription">
+  </Field>
+  <!-- Meeting Key -->
+  <Field
+    Type="Text"
+    DisplayName="Meeting Key"
+    Required="TRUE"
+    EnforceUniqueValues="FALSE"
+    MaxLength="255"
+    Group="Kiiro.BOD"
+    ID="{59CE111F-FAC9-4242-A881-56DAC0E97A17}"
+    StaticName="BODMeetingKey"
+    Name="BODMeetingKey">
+  </Field>
+  <!-- Meeting Time -->
+  <Field
+    Type="Text"
+    DisplayName="Meeting Time"
+    Required="FALSE"
+    EnforceUniqueValues="FALSE"
+    MaxLength="255"
+    Group="Kiiro.BOD"
+    ID="{19DC89D4-5229-4794-816F-B83B0D2A0FF2}"
+    StaticName="BODMeetingTime"
+    Name="BODMeetingTime">
+  </Field>
+  <!-- Agenda ID -->
+  <Field
+    Type="Number"
+    DisplayName="Agenda ID"
+    Required="FALSE"
+    EnforceUniqueValues="FALSE"
+    MaxLength="255"
+    Group="Kiiro.BOD"
+    ID="{5173F040-3482-41C8-B4F3-FB54CD2E2E59}"
+    StaticName="BODAgendaID"
+    Name="BODAgendaID">
+  </Field>
+  <!-- Parent Comment ID -->
+  <Field
+    Type="Number"
+    DisplayName="Parent Comment ID"
+    Required="FALSE"
+    EnforceUniqueValues="FALSE"
+    MaxLength="255"
+    Group="Kiiro.BOD"
+    ID="{68DB8522-DD4B-447F-AC16-15EB4123EA54}"
+    StaticName="BODParentCommentID"
+    Name="BODParentCommentID">
+  </Field>
+  <!-- Vote ID -->
+  <Field
+    Type="Text"
+    DisplayName="Vote ID"
+    Required="TRUE"
+    EnforceUniqueValues="TRUE"
+    Indexed="TRUE"
+    MaxLength="255"
+    Group="Kiiro.BOD"
+    ID="{3FBB4F49-5300-4EB3-A0B9-45890153D220}"
+    StaticName="BODVoteID"
+    Name="BODVoteID">
+  </Field>
+  <!-- Vote Type -->
+  <Field
+    Type="Choice"
+    DisplayName="Vote Type"
+    Required="TRUE"
+    EnforceUniqueValues="FALSE"
+    Format="Dropdown"
+    FillInChoice="FALSE"
+    Group="Kiiro.BOD"
+    ID="{5A31F74B-46C4-4406-B231-5518B585D54C}"
+    StaticName="BODVoteType"
+    Name="BODVoteType">
+    <CHOICES>
+      <CHOICE>0</CHOICE>
+      <CHOICE>1</CHOICE>
+    </CHOICES>
+  </Field>
+  <!-- Attendance ID -->
+  <Field
+    Type="Text"
+    DisplayName="Attendance ID"
+    Required="TRUE"
+    EnforceUniqueValues="TRUE"
+    Indexed="TRUE"
+    MaxLength="255"
+    Group="Kiiro.BOD"
+    ID="{7A7DBD66-BECC-453E-945A-AAC0C4525286}"
+    StaticName="BODAttendanceID"
+    Name="BODAttendanceID">
+  </Field>
+  <!-- Attendance Type -->
+  <Field
+    Type="Choice"
+    DisplayName="Attendance Type"
+    Required="TRUE"
+    EnforceUniqueValues="FALSE"
+    Format="Dropdown"
+    FillInChoice="FALSE"
+    Group="Kiiro.BOD"
+    ID="{78773AEC-6192-478E-A533-F91AE9938DDF}"
+    StaticName="BODAttendanceType"
+    Name="BODAttendanceType">
+    <CHOICES>
+      <CHOICE>0</CHOICE>
+      <CHOICE>1</CHOICE>
+      <CHOICE>2</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>
+
+
+
+
+
+
+
+
+

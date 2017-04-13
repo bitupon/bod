@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	BOD - Home</title>
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.carousel.min.css" />
+	<link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.theme.default.min.css" />
+	<link rel="stylesheet" href="css/main.css">
+
+	<script src="libs/jquery/dist/jquery.min.js"></script>
+	<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="libs/owl.carousel/dist/owl.carousel.min.js"></script>
+</head>
+<body>
+	<main class="bod-main">
+		<div class="bod-content">
+			<!--Start: BOD PageLayout -->
+			<div class="row bod-page">
+				<div class="col-sm-12 col-md-12 col-lg-12">	
+					<!--Start : BOD Alert Components-->			
+					<section>
+						<div class="bod-alert alert alert-success" role="alert">
+							<a href="#" class="alert-link"><strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again. </a>
+						</div>
+						<div class="bod-alert alert alert-info" role="alert">
+							<a href="#" class="alert-link"><strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again. </a>
+						</div>
+						<div class="bod-alert alert alert-warning" role="alert">
+							<a href="#" class="alert-link"><strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again. </a>
+						</div>
+						<div class="bod-alert alert alert-danger" role="alert">
+							<a href="#" class="alert-link"><strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again. </a>
+						</div>
+
+						<div class="bod-alert bod-alert--sm alert alert-success" role="alert">
+							<a href="#" class="alert-link"><strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again. </a>
+						</div>
+						
+						<div class="bod-alert alert alert-success alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<span class="bod-alert__sym"><i class="fa fa-check" aria-hidden="true"></i></span><span class="p-l-6">Change a few things up and try submitting again.</span>
+						</div>
+						<div class="bod-alert alert alert-danger alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<span class="bod-alert__sym"><i class="fa fa-times" aria-hidden="true"></i></span><span class="p-l-6">Change a few things up and try submitting again.</span>
+						</div>
+						<div class="bod-alert alert alert-warning alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<span class="bod-alert__sym"><i class="fa fa-check" aria-hidden="true"></i></span><span class="p-l-6">Change a few things up and try submitting again.</span>
+						</div>
+						<div class="bod-alert alert alert-danger alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<span class="bod-alert__sym"><i class="fa fa-check" aria-hidden="true"></i></span><span class="p-l-6">Change a few things up and try submitting again.</span>
+						</div>
+
+							
+					</section>
+					<!--End : BOD Alert Components-->			
+				</div>
+			</div>
+			<!--End: BOD PageLayout -->
+		</div>
+	</main>
+	<script>
+		$(document).ready(function(){
+			
+
+			$('.owl-carousel').owlCarousel({
+			    loop:true,
+			    margin:10,
+			    dots:false,
+			    nav:true,
+			    navText:['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+			    responsive:{
+			        0:{
+			            items:1
+			        },
+			        600:{
+			            items:3
+			        },
+			        1000:{
+			            items:5
+			        }
+			    }
+			})
+
+		})
+	</script>
+</body>
+</html>
+

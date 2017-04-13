@@ -1,0 +1,9 @@
+<View DisplayName="Comments" DefaultView="TRUE">
+  <ViewFields>
+    <FieldRef Name="BODAgendaID"/>
+    <FieldRef Name="BODDescription"/>
+    <FieldRef Name="BODParentCommentID"/>
+  </ViewFields>
+  <Query/>
+  <RowLimit Paged="TRUE">30</RowLimit>
+</View>

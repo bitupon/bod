@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Module Name="AddWebParts" Url="Pages">
+  <File Name="Meetings.aspx" Url="Meetings.aspx" Title="Meetings" WebPartsPath="bod\widgets\meetings\Meetings.dwp" ZoneId="bodMeetingsTmp" ZoneIndex="0" IsListView="false" />
+</Module>

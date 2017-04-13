@@ -1,0 +1,98 @@
+#s4-bodyContainer{
+    padding-bottom:0px;
+
+    #contentRow{
+        #contentBox{
+             .ms-core-tableNoSpace{
+                 width:100%;
+                table{
+                    width:100%;
+                }
+             }         
+        }
+    }    
+}
+
+.ms-webpartzone-cell{
+    margin: 0;
+}
+
+.ms{
+   &-long{
+       width:100%;
+   }
+    &-formlabel{
+        .ms-accentText{
+            color: #b30000;
+        }
+    }
+
+    &-dlgContent{
+    
+    }
+
+    &-dlgBorder{
+
+    }
+
+    &-dlgTitle{
+         padding: 15px 20px;
+        .ms-dlgTitleText {
+            text-transform: uppercase;
+            font-size: 18px;
+            color: #444;
+            font-family: 'Roboto', sans-serif;           
+            padding: 0;
+            margin: 0;
+           
+        }
+
+        .ms-dlgTitleBtns{
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            margin: 0;
+             a > span{
+                padding: 0!important;
+            }
+        }
+    }
+
+     &-dlgFrameContainer{
+        padding: 0px 15px;
+    }
+
+    &-dlgFrame{
+
+    }
+}
+
+#s4-ribbonrow{
+    display: none;
+}
+
+input[type=button],button{
+    @extend .btn;
+}
+
+input[type=password], input[type=text], input[type=file], textarea, .sp-peoplepicker-topLevel, .ms-inputBox{
+    @extend .form-control;
+    display: block;  
+    height: 34px;   
+    font-size: 14px;
+    line-height: 1.42857143; 
+    box-sizing: border-box;   
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+select{
+    @extend .form-control;
+}
+
+textarea{
+    max-width: 100%;
+    height: 150px;
+    max-height: 150px;
+}

@@ -1,0 +1,33 @@
+.#{$bd}{
+	&-tab{
+        $tab: &;
+        
+        #{$tab}__item{
+            display: inline-block;
+            margin-right: 40px;
+            &s{
+                @extend #list;
+            }
+
+            a{
+                display: inline-block;
+                text-decoration: none;
+                padding:3px;
+               
+            }
+
+            &.active{
+                a{
+                     border-bottom: solid 2px $pri-color;
+                }
+            }
+        }
+
+        #{$tab}__content{
+            padding:15px;
+            &s{
+
+            }
+        }
+    }
+}

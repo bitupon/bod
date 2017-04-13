@@ -1,0 +1,9 @@
+<View DisplayName="Votes" DefaultView="TRUE">
+  <ViewFields>
+    <FieldRef Name="BODAgendaID"/>
+    <FieldRef Name="BODVoteID"/>
+    <FieldRef Name="BODVoteType"/>
+  </ViewFields>
+  <Query/>
+  <RowLimit Paged="TRUE">30</RowLimit>
+</View>
